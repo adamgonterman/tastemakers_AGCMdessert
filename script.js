@@ -326,16 +326,20 @@ function page7handler(id) {
     .then(function (dessertRecipeInfo) {
       console.log(dessertRecipeInfo);
       dessertHeader.textContent = dessertRecipeInfo.title; //add textContent to the header, recipeInfo.title will return the name of the recipe
+      console.log(dessertHeader.innerText)
+      var dessertName = dessertHeader.innerText
+      console.log(dessertName)
       dessertImg.src = dessertRecipeInfo.image; //add image to the image HTML, recipeInfo.image will return the src link
       dessertRecipe.innerHTML = dessertRecipeInfo.summary; // add innerHTML to the body, recipeInfo.summary will return the text summary of the recipe
 
       var youTubeApiKey = "AIzaSyCPVbJouFqqk56R4EteKzKMhY703BMSE_M"; //youtube API key
       var youTubeUrlDessert =
         "https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=" +
-        dessertHeader.textContent +
+        dessertName +
         "&key=" +
         youTubeApiKey; // maxResults = 1 will return 1 video, q = cuisineHeader.textContent will return the video based on the recipe name
 
+      console.log(youTubeUrlDessert)
       console.log(dessertHeader.textContent); //could remove later
 
       //fetch request for youTubeApi
@@ -345,13 +349,13 @@ function page7handler(id) {
         })
         .then(function (data) {
           console.log(data);
-          console.log(data.items[0].id.dessertVideoId); //data.items[0].id.videoId will return the youtube videoId and we will use this inside the obj.video.value
-          var dessertVideoId = data.items[0].id.dessertVideoId; //create a variable to store the youtube videoId and we will use this inside the obj.video.value
+          console.log(data.items[0].id.videoId); //data.items[0].id.videoId will return the youtube videoId and we will use this inside the obj.video.value
+          var videoId = data.items[0].id.videoId; //create a variable to store the youtube videoId and we will use this inside the obj.video.value
           var obj = {
             video: {
               value:
                 "<iframe title='YouTube video player' type='text/html' width='640' height='390' src='http://www.youtube.com/embed/" +
-                dessertVideoId +
+                videoId +
                 "' frameborder='0' allowFullScreen></iframe>", //create the obj object, and we will get the videoId from the variable we just created above
             },
           };
@@ -359,7 +363,7 @@ function page7handler(id) {
           console.log(obj.video.value); // could remove later
           //    document.write(obj.video.value) // remove
           dessertVideo.innerHTML = obj.video.value; // add the obj.video.value to cusineVideo
-          page4Div.appendChild(dessertVideo); //parent append child
+          page7Div.appendChild(dessertVideo); //parent append child
         });
     });
 
