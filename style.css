@@ -1,0 +1,121 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#header-image {
+  height: 30rem;
+  width: 100%;
+}
+
+.page-1 {
+  display: flex;
+  justify-content: space-around;
+}
+
+.continuous-1 {
+  background: 
+      linear-gradient(currentColor 0 0) 
+      var(--d, 201%) 100% /200% 3px 
+      no-repeat;
+  transition:0.5s;
+}
+.continuous-1:hover {
+  --d: -101%;
+}
+
+.page-2 {
+  display: flex;
+  flex-direction: column;
+  align-content: space-around;
+  align-items: center;
+}
+
+/*Button look property*/
+button {
+  margin: 1rem;
+  padding: 1rem;
+  font-size: 50px;
+  border-radius: 8px;
+  border: 10px;
+  background-image: url(./assets/Images/Dark_chalkboard.jpeg);
+  color: white;
+  background-size: 100%;
+  width: 65%;
+  font-family: "Dancing Script", cursive;
+}
+
+/*Hover effect for the homepage buttons*/
+button:hover {
+  background-color: rgb(0, 0, 0, 0.5);
+  background-blend-mode: 0.3;
+}
+
+#result {
+  display: flex;
+  justify-content: center;
+  margin-top: 5%;
+}
+
+/*Main Homepage food image*/
+#main-image {
+  width: 100%;
+  height: auto;
+  margin-top: 50px;
+}
+
+/*Webpage chalkboard background*/
+body {
+  background-color: rgb(0, 0, 0);
+  background-image: url(./assets/Images/chalkboard_vertical.jpeg);
+  background-size: 100%;
+}
+
+/*Text attributes*/
+.text {
+  font-family: "Dancing Script", cursive;
+  color: white;
+  text-align: center;
+  width: 100%;
+}
+
+/*Font size for the header text only*/
+#header {
+  font-size: 75px;
+}
+
+
+/*Footer font style*/
+a {
+  text-decoration: none;
+  color: white;
+  font-size: 30px;
+  font-family: "Dancing Script", cursive;
+}
+
+/* Footer position */
+footer {
+  margin: auto;
+  padding: 85px;
+  height: 30px;
+  width: 100%;
+  text-align: center
+}
+
+/* Heading text format*/ 
+h1 {
+  margin-bottom: 50px;
+}
+
+/* Button text styling */
+.btntext {
+  font-family: "Dancing Script", cursive;
+  text-align: center;
+  width: 35%;
+  background-size: cover;
+  color: white;
+
+}
+
+
